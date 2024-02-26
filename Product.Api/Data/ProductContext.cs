@@ -6,18 +6,18 @@ public class ProductContext(DbContextOptions<ProductContext> options) : DbContex
 {
     public virtual DbSet<Models.Product> Products => Set<Models.Product>();
     
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        var products = new List<Models.Product>
-        {
-            new()
-            {
-                Id = Guid.NewGuid(),
-                Name = "Product 1",
-                Price = 100,
-                Image = "https://via.placeholder.com/150"
-            },
-            
-        };
-    }
+    // protected override void OnModelCreating(ModelBuilder modelBuilder)
+    // {
+    //     var products = new List<Models.Product>
+    //     {
+    //         new()
+    //         {
+    //             Id = Guid.NewGuid(),
+    //             Name = "Product 1",
+    //             Price = 100,
+    //             Image = "https://via.placeholder.com/150"
+    //         },
+    //         
+    //     };
+    // }
 }
