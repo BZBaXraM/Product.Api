@@ -8,5 +8,6 @@ public class AutoMapperProfiles : Profile
     public AutoMapperProfiles()
     {
         CreateMap<ProductDto, Models.Product>().ReverseMap();
+        CreateMap<AddProductRequestDto, Models.Product>();
     }
 }

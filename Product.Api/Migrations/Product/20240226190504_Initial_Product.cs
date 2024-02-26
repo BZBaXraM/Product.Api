@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Product.Api.Migrations.Product
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class Initial_Product : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

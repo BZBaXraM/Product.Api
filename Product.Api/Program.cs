@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
-;
+
 builder.Services.AuthenticationAndAuthorization(builder.Configuration);
 builder.Services.AddSwagger(builder.Configuration);
 
@@ -22,8 +22,8 @@ if (app.Environment.IsDevelopment())
 app.UseCors(x => x
     .AllowAnyMethod()
     .AllowAnyHeader()
-    .SetIsOriginAllowed(_ => true) 
-    .AllowCredentials()); 
+    .SetIsOriginAllowed(_ => true)
+    .AllowCredentials());
 
 
 app.UseHttpsRedirection();

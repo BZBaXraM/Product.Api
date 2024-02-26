@@ -27,7 +27,7 @@ public static class Di
         {
             setup.SwaggerDoc("v1", new OpenApiInfo
             {
-                Title = "BMDb.API",
+                Title = "Product.API",
                 Version = "v1"
             });
             

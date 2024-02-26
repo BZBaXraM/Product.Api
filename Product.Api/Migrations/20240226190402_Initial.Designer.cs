@@ -12,7 +12,7 @@ using Product.Api.Data;
 namespace Product.Api.Migrations
 {
     [DbContext(typeof(AuthContext))]
-    [Migration("20240225171639_Initial")]
+    [Migration("20240226190402_Initial")]
     partial class Initial
     {
         /// <inheritdoc />

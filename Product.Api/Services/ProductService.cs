@@ -15,4 +15,19 @@ public class ProductService(ProductContext context) : IAsyncProductService
     {
         return await context.Products.ToListAsync();
     }
+
+    public async Task<Models.Product> CreateProductAsync(Models.Product product)
+    {
+        var newProduct = new Models.Product
+        {
+            Id = Guid.NewGuid(),
+            Name = product.Name,
+            Price = product.Price,
+            Image = product.Image
+        };
+        context.Products.Add(newProduct);
+        await context.SaveChangesAsync();
+        
+        return newProduct;
+    }
 }

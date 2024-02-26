@@ -10,22 +10,9 @@ public class TokenService : ITokenService
 {
     private readonly JwtConfig _config;
 
-    /// <summary>
-    /// Constructor
-    /// </summary>
-    /// <param name="config"></param>
     public TokenService(JwtConfig config)
         => _config = config;
 
-
-    /// <summary>
-    /// GenerateSecurityToken
-    /// </summary>
-    /// <param name="id"></param>
-    /// <param name="email"></param>
-    /// <param name="roles"></param>
-    /// <param name="userClaims"></param>
-    /// <returns></returns>
     public string GenerateSecurityToken(string id, string email, IEnumerable<string> roles,
         IEnumerable<Claim> userClaims)
     {

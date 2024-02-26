@@ -31,4 +31,12 @@ public class ProductController(ProductContext context, IMapper mapper) : Control
 
         return Ok(mapper.Map<ProductDto>(product));
     }
+
+    [HttpPost]
+    public async Task<IActionResult> CreateProduct([FromBody] AddProductRequestDto request)
+    {
+        var product = mapper.Map<Models.Product>(request);
+        var newProduct = await _service.CreateProductAsync(product);
+        return CreatedAtAction(nameof(GetProductById), new { id = newProduct.Id }, mapper.Map<ProductDto>(newProduct));
+    }
 }
