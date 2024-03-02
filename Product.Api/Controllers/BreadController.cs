@@ -3,10 +3,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Product.Api.Data;
 using Product.Api.DTOs;
+using Product.Api.Models;
 using Product.Api.Services;
 
 namespace Product.Api.Controllers;
 
+[AllowAnonymous]
 [Authorize]
 [Route("api/[controller]")]
 [ApiController]
@@ -17,7 +19,7 @@ public class BreadController(ProductContext context, IMapper mapper) : Controlle
     [HttpGet]
     public async Task<IActionResult> GetProductsAsync()
     {
-        var products = await _service.GetProductsAsync();
+        var products = await _service.GetBreadsAsync();
 
         return Ok(mapper.Map<IEnumerable<ProductDto>>(products));
     }
@@ -37,8 +39,8 @@ public class BreadController(ProductContext context, IMapper mapper) : Controlle
     [HttpPost]
     public async Task<IActionResult> CreateProduct([FromBody] AddProductRequestDto request)
     {
-        var product = mapper.Map<Models.Product>(request);
-        var newProduct = await _service.CreateProductAsync(product);
+        var product = mapper.Map<Bread>(request);
+        var newProduct = await _service.CreateBreadAsync(product);
         return CreatedAtAction(nameof(GetProductById), new { id = newProduct.Id }, mapper.Map<ProductDto>(newProduct));
     }
 }

@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Product.Api.Services;
 
 namespace Product.Api.Controllers;
 
+[AllowAnonymous]
 [Authorize]
 [Route("api/[controller]")]
 [ApiController]
